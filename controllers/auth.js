@@ -49,7 +49,7 @@ const loguearUsuario = async (req, res = response) => {
         {
             return res.status(400).json({
                 'CodError':1, 
-                'DescError': "Error, creedenciales invalidos."
+                'DescError': "Error, creedenciales invalidos..."
             });
         }
 
