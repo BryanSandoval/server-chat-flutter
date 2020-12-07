@@ -26,6 +26,8 @@ app.use( express.static( publicPath ) );
 //Rutas
 
 app.use('/api/login', require('./routes/auth'));
+app.use('/api/usuarios', require('./routes/usuarios'));
+app.use('/api/mensajes', require('./routes/mensajes'));
 
 
 /*
@@ -33,6 +35,8 @@ cloudMongodb.com
 user: bsandoval
 contra: 6qzChE7TjZsI6Pys
 
+heroku: 
+git push origin HEAD:MASTER
 */
 
 

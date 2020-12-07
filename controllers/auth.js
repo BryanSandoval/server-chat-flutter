@@ -3,7 +3,6 @@ const { validationResult } = require('express-validator');
 const bcrypt = require("bcryptjs");
 
 const Usuario = require('../models/usuario');
-const usuario = require('../models/usuario');
 const { generarJWT } = require('../helpers/jwt');
 
 const crearUsuario = async (req, res = response) => {
@@ -28,7 +27,7 @@ const crearUsuario = async (req, res = response) => {
 
         const token = await generarJWT(nuevoUsuario.id);
         //console.log("Auth Token: "+token);
-        res.json({'CodError':0, 'DescError': "", 'objetoRespuesta':{nuevoUsuario, token}});
+        res.json({'CodError':0, 'DescError': "", 'objetoRespuesta':{"usuario":nuevoUsuario, token}});
 
 
     } catch (error) {
@@ -87,7 +86,7 @@ const refreshToken = async (req, res = response) => {
 
     try {
         const token = await generarJWT(uid);
-        res.json({'CodError':0, 'DescError': "", 'objetoRespuesta':{usuario, "nuevoToken": token}});
+        res.json({'CodError':0, 'DescError': "", 'objetoRespuesta':{usuario, "token": token}});
 
     } catch (error) {
         res.status(500).json({'CodError':3, 'DescError': "Error al generar el nuevo token."});
